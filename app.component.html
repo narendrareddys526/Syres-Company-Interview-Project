@@ -1,0 +1,56 @@
+<div id="sect1"class="container">  
+    <div class="border">
+    <form class="form-inline">
+     <div class="form-group">
+            <p><b>SANJEEVNI AGRO PRODUCTS</b></p>
+            <div class="image-inline">
+               <div class="img">
+                   <img [src]="myimage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <img [src]="myimage1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <img [src]="myimage2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <img [src]="myimage3">
+               </div>     
+            </div>
+      </div>
+    </form>
+        <div class="disply-inline">
+         <h1><b>Login to Your Account</b></h1><br>
+         <form #userdataForm="ngForm" ngNativeValidate (ngSubmit)="save(userdataForm)">
+         <input type="text"
+           placeholder="username" 
+           [class.is-invalid]="username.invalid && username.touched"
+           class="form-control"
+           size="40%"
+           name="username"
+           [(ngModel)]="data.username"
+           #username="ngModel"
+           required
+           pattern="^[a-z A-Z]{3,14}$"><br><br>
+           <div class="text-danger" *ngIf="username.errors && username.touched">
+              <small *ngIf="username.errors.required">UserName is required</small> 
+               <small *ngIf="username.errors.pattern">UserName must be in charecters</small> 
+           </div>
+           <input type="text"
+           placeholder="password" 
+           [class.is-invalid]="password.invalid && password.touched"
+           class="form-control"
+           size="40%"
+           name="password"
+           [(ngModel)]="data.password"
+           #password="ngModel"
+           required
+           pattern="^[a-z A-Z 0-9]{3,14}$"><br><br>
+           <div class="text-danger" *ngIf="password.errors && password.touched">
+              <small *ngIf="password.errors.required">password is required</small> 
+               <small *ngIf="password.errors.pattern">password must be in valid format</small> 
+           </div>
+           <h2 style="color: red;">Forgot Your Password?</h2>
+         <div class="err">
+            <button type="submit" [disabled]="userdataForm.invalid">Login</button>
+         </div>
+         </form>
+             <h3><b>Don't have account? <a href="">Sign Up</a></b></h3>
+        
+        </div>
+    </div>    
+</div>     
